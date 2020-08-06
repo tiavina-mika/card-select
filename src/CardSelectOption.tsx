@@ -7,13 +7,18 @@ const useStyles = createUseStyles({
     centerRow: {
         composes: 'flexRow justifyCenter alignCenter',
     },
+    cardSelectOption: {
+        composes: '$centerRow flex1',
+    },
     valueSelect: {
         flex: 1,
         composes: 'flexRow alignCenter',
         fontSize: 16,
+        // backgroundColor: 'green'
     },
     arrowIconSelect: {
         composes: '$centerRow',
+        // backgroundColor: 'red'
     },
     rotateIcon180: {
         transform: 'rotate(180deg)',
@@ -38,12 +43,12 @@ const CardSelectOption: FC<Props> = ({ value, selectedValue, index, open, label 
     const classes = useStyles();
 
     return (
-        <>
+        <div className={classes.cardSelectOption}>
             {/* the select input */}
             <div className={classes.valueSelect}>
                 <span className={open && label ? classes.valueLabel : null}>
                     {/* if there is a display selected value other than the value, else just the value */}
-                    {!index && selectedValue && label ? selectedValue : value}
+                    {!index && selectedValue && label ? selectedValue : value }
                 </span>
             </div>
             {/* it's a dropdown if it have an index (a list) */}
@@ -56,7 +61,7 @@ const CardSelectOption: FC<Props> = ({ value, selectedValue, index, open, label 
                     />
                 </div>
             )}
-        </>
+        </div>
     );
 };
 

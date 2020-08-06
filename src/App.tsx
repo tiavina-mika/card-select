@@ -7,55 +7,18 @@ import './styles.css'
 
 const useStyles = createUseStyles({
     stretchColumn: {
-        composes: 'flexColumn flex1 stretchSelf',
+        composes: 'flexColumn alignCenter flex1 stretchSelf',
     },
-    centerRow: {
-        composes: 'flexRow justifyCenter alignCenter',
-    },
-    form: {
+    root: {
         composes: '$stretchColumn',
-        // fontFamily: theme.font.montserrat,
+        fontFamily: 'sans-serif',
         color: secondaryColor,
         fontSize: 14,
         fontWeight: 600,
         marginTop: 25,
     },
-
-    // form
-    field: {
-        composes: '$stretchColumn',
-        marginBottom: 24,
-    },
-    label: {
-        opacity: 0.6,
-        textTransform: 'uppercase',
-        marginBottom: '0px !important',
-    },
-    card: {
-        height: 57,
-        width: '100%',
-    },
-    cardInput: {
-        height: 54,
-        marginTop: 9,
-    },
-    cardSelect: {
-        flexDirection: 'row',
-        marginTop: 9,
-        paddingLeft: 17,
-        paddingRight: 17,
-    },
-    dispositionIcon: {
-        composes: '$centerRow',
-        marginRight: 20,
-    },
-    valueSelect: {
-        flex: 1,
-        composes: 'flexRow alignCenter',
-        fontSize: 16,
-    },
-    arrowIconSelect: {
-        composes: '$centerRow',
+    content: {
+        width: 500
     },
     input: {
         composes: '$stretchColumn',
@@ -69,24 +32,6 @@ const useStyles = createUseStyles({
             fontSize: 16,
             fontWeight: 500,
         },
-    },
-    infoTitle: {
-        marginBottom: '1px !important',
-    },
-    infoDescription: {
-        opacity: 0.5,
-        fontWeight: 500,
-        fontSize: 12,
-    },
-    button: {
-
-    },
-    DispostionBtn: {
-        display: 'none',
-        cursor: 'pointer',
-    },
-    textDisposition: {
-        width: 197,
     },
 });
 
@@ -122,21 +67,23 @@ const Form: FC = () => {
 
 
     return (
-        <div className={classes.form}>
-            <CardSelect
-                label="Inclinaison du toit"
-                selected={angle}
-                options={angleOptions}
-                onSelect={handleAngleSelect}
-            />
-            <CardSelect
-                label="Orientation des panneaux"
-                selected={inclinaison}
-                options={orientationOptions}
-                onSelect={handleInclinaisonSelect}
-                icon="solar-portrait"
-            />
+        <div className={classes.root}>
+            <div className={classes.content}>
+                <CardSelect
+                    label="Inclinaison du toit"
+                    selected={angle}
+                    options={angleOptions}
+                    onSelect={handleAngleSelect}
+                />
+                <CardSelect
+                    label="Orientation des panneaux"
+                    selected={inclinaison}
+                    options={orientationOptions}
+                    onSelect={handleInclinaisonSelect}
+                    icon="solar-portrait"
+                />
 
+            </div>
         </div>
     );
 };
