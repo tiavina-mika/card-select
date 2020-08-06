@@ -9,6 +9,7 @@ const useStyles = createUseStyles({
     },
     cardSelectOption: {
         composes: '$centerRow flex1',
+
     },
     valueSelect: {
         flex: 1,

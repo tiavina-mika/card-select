@@ -25,7 +25,7 @@ const useStyles = createUseStyles({
     },
     card: {
         height: 57,
-        width: '100%',
+        // width: '100%',
     },
     cardSelect: {
         flexDirection: 'row',
@@ -49,6 +49,7 @@ const useStyles = createUseStyles({
         width: '100%',
         position: 'absolute',
         zIndex: 2000,
+
     },
     option: {
         composes: 'flexRow alignCenter $paddingX',

@@ -18,7 +18,7 @@ const useStyles = createUseStyles({
         marginTop: 25,
     },
     content: {
-        width: 500
+        width: 500,
     },
     input: {
         composes: '$stretchColumn',
