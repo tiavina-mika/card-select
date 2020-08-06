@@ -1,6 +1,6 @@
 import React, { FC, ReactNode, MouseEvent } from 'react';
 import clsx from 'clsx';
-import { createUseStyles, useTheme } from 'react-jss';
+import { createUseStyles } from 'react-jss';
 import { activeColor } from './constant';
 
 const useStyles = createUseStyles({
@@ -85,14 +85,7 @@ const Paper: FC<Props> = ({
     selected,
     disabled,
 }) => {
-    const theme = useTheme();
-    const classes = useStyles({ theme });
-    // const [usedActive, setUsedActive] = useState(false);
-
-    // useEffect(() => {
-    //       setUsedActive(selected);
-    // }, [selected]);
-
+    const classes = useStyles();
 
     if (!!onClick) {
         return (

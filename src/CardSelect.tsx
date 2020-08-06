@@ -1,4 +1,4 @@
-import React, { FC, useState, ReactNode } from 'react';
+import React, { FC, useState, ReactNode, useEffect } from 'react';
 import { createUseStyles } from 'react-jss';
 import clsx from 'clsx';
 
@@ -71,6 +71,18 @@ type Props = {
 const CardSelect: FC<Props> = ({ label, selected, className, options, onSelect, icon }) => {
     const classes = useStyles();
     const [open, setOpen] = useState<boolean>(false);
+
+    useEffect(() => {
+        const closeSelect = () => {
+            console.log('clicked')
+            setOpen(false)
+        };
+        document.body.addEventListener('click', closeSelect );
+
+        return function cleanup() {
+            window.removeEventListener('click', closeSelect );
+        } 
+    },[]);
 
     const handleSelect = (option: OptionProps): void => {
         onSelect(option);
