@@ -1,11 +1,11 @@
-import React, { FC, useState, ReactNode, useEffect } from 'react';
+import React, { FC, useState, ReactNode } from 'react';
 import { createUseStyles } from 'react-jss';
 import clsx from 'clsx';
 
 import Paper from './Paper';
-// import { publicIconPath } from '../../../utils/constants';
 import CardSelectOption from './CardSelectOption';
 import FormLabel from './FormLabel';
+import { activeColor } from './constant';
 
 const useStyles = createUseStyles({
     stretchColumn: {
@@ -56,6 +56,9 @@ const useStyles = createUseStyles({
         height: 57,
         width: '100%',
         cursor: 'pointer',
+        '&:hover': {
+            color: activeColor,
+        }
     },
 });
 
@@ -71,18 +74,6 @@ type Props = {
 const CardSelect: FC<Props> = ({ label, selected, className, options, onSelect, icon }) => {
     const classes = useStyles();
     const [open, setOpen] = useState<boolean>(false);
-
-    useEffect(() => {
-        const closeSelect = () => {
-            console.log('clicked')
-            setOpen(false)
-        };
-        document.body.addEventListener('click', closeSelect );
-
-        return function cleanup() {
-            window.removeEventListener('click', closeSelect );
-        } 
-    },[]);
 
     const handleSelect = (option: OptionProps): void => {
         onSelect(option);
